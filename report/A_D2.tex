@@ -1,0 +1,424 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\setlist[itemize]{noitemsep, topsep=3pt}
+\setlist[enumerate]{noitemsep, topsep=3pt}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {1.25ex \@plus1ex \@minus.2ex}%
+  {0.6em}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\title{\textbf{Movie Recommendation Expert System}}
+\author{
+COMP 474/6741 Intelligent Systems\\
+\textit{John Robert Ierfino}\\
+\textit{4021146}\\
+Repository: \href{https://github.com/jrierfino/Comp6741-clips-movie-recommender}{\textit{GitHub}}
+}
+\date{\textit{April 15, 2026}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This project develops a rule-based expert system that recommends movies based on user preferences. The system asks the user seven questions and uses the answers to identify the best matches in its catalog. The overall goal is to provide concise, explainable, and practical recommendations using a CLIPS knowledge base built from both certain and uncertain knowledge.
+
+\section{D1: Certain Knowledge}
+
+\subsection{Problem Domain and Knowledge Domain}
+The problem domain is movie recommendation. The knowledge domain used by the expert system is the subset of that domain concerned with selecting movies from a fixed catalog based on features such as genre, mood, runtime, scariness, violence, complexity, and viewing context. The user answers seven questions about these preferences, and the system compares the answers with annotated movie facts to produce the top three recommendations.
+
+\subsection{Project Goal}
+The goal of this system is to quickly suggest the top three movies in its catalog using only seven user answers. The questions are intentionally short and limited so that the user spends less time completing the interview and more time acting on the recommendation. The system also enforces hard constraints so that users do not receive clearly unwanted recommendations, such as a scary movie when the user has selected a no-scariness preference. If all candidates are eliminated, the system falls back to genre-based recommendations so that the user still receives a usable result.
+
+\subsection{Intended User}
+The intended user for this system is a casual viewer who wants a quick recommendation without having to spend time looking through hundreds of possibilities or responding to a long questionnaire. The user can respond to straightforward preference questions that correspond with the kind of movie they want to watch and can specify hard constraints that they do not want to violate. To ensure that these users can receive their recommendations quickly, the interview is brief and simple to complete.
+
+\subsection{Knowledge Base Design}
+
+\subsubsection{Factbase (F)}
+The factbase for this project contains:
+\begin{itemize}
+  \item Movie catalog facts
+  \item User preference facts
+  \item Scoring facts
+  \item Disqualification facts
+  \item Explanation facts
+  \item Phase-control and selection facts
+\end{itemize}
+
+\paragraph{Conceptual Templates}
+\begin{itemize}
+  \item \textbf{Movie facts}\\
+  Each movie fact records a title together with its genre, mood, runtime, scariness, violence level, complexity, and group-fit label.
+
+  \item \textbf{User preference facts}\\
+  Each user fact records the preferred genre, mood, runtime, scariness tolerance, violence tolerance, complexity preference, and viewing context obtained during the interview.
+
+  \item \textbf{Score facts}\\
+  Each score fact stores the current crisp score accumulated for a movie during recommendation.
+
+  \item \textbf{Disqualification facts}\\
+  Each disqualification fact records that a movie has been excluded because it violates a hard user constraint.
+
+  \item \textbf{Explanation facts}\\
+  Each explanation fact stores a short reason that can be shown to the user when a title is recommended.
+
+  \item \textbf{Control and selection facts}\\
+  These facts manage interview progress, processing phase, and the set of titles chosen for the final output.
+\end{itemize}
+
+\paragraph{Attribute Values}
+Each movie is assigned one value from each attribute. The categories are intentionally short to keep user questions simple and to support efficient comparison through rules.
+\begin{itemize}
+  \item Genres: \{\texttt{action, comedy, drama, horror, thriller, romance, scifi, animation}\}
+  \item Mood: \{\texttt{light, intense, emotional, mindbending, scary}\}
+  \item Runtime: \{\texttt{short, medium, long}\}
+  \item Scariness: \{\texttt{none, mild, high}\}
+  \item Violence: \{\texttt{low, medium, high}\}
+  \item Complexity: \{\texttt{easy, medium, complex}\}
+  \item Group fit: \{\texttt{good, ok, poor}\}
+\end{itemize}
+
+\paragraph{Example Catalog Entry}
+An example of a catalog entry in the factbase is:
+\begin{quote}
+\textit{John Wick} is an action movie with an intense mood, medium runtime, no scariness, high violence, easy complexity, and good group fit.
+\end{quote}
+
+\subsubsection{Rulebase (R)}
+\paragraph{Rule Organization and Inference Flow}
+The rulebase is organized by purpose: interview, initialization, hard constraints, soft scoring, fallback behavior, probabilistic reasoning, fuzzy reasoning, and final recommendation output.
+
+\paragraph{Interview Rules}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+R1 & Ask genre &
+The system is in the interview phase and the genre question has not yet been asked &
+Ask the user for a preferred genre, store the answer, and record that the genre field has been asked. \\
+R2 & Ask mood &
+The system is in the interview phase and the mood question has not yet been asked &
+Ask the user for a preferred mood, store the answer, and record that the mood field has been asked. \\
+R3 & Ask runtime &
+The system is in the interview phase and the runtime question has not yet been asked &
+Ask the user for a preferred runtime category, store the answer, and record that the runtime field has been asked. \\
+R4 & Ask scariness &
+The system is in the interview phase and the scariness question has not yet been asked &
+Ask the user for scariness tolerance, store the answer, and record that the scariness field has been asked. \\
+R5 & Ask violence tolerance &
+The system is in the interview phase and the violence question has not yet been asked &
+Ask the user for violence tolerance, store the answer, and record that the violence field has been asked. \\
+R6 & Ask complexity &
+The system is in the interview phase and the complexity question has not yet been asked &
+Ask the user for a complexity preference, store the answer, and record that the complexity field has been asked. \\
+R7 & Ask context &
+The system is in the interview phase and the viewing-context question has not yet been asked &
+Ask whether the user is watching solo or with a group, store the answer, and record that the context field has been asked. \\
+\bottomrule
+\end{tabularx}
+
+\paragraph{Initialization Rules}
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+R8 & Initialize scores &
+A movie exists in the catalog and no score has yet been created for it &
+Create a score fact for that movie with initial value $0$. \\
+R9 & Start recommendation phase &
+All required interview answers have been collected &
+End the interview phase and begin the scoring phase. \\
+\bottomrule
+\end{tabularx}
+
+\paragraph{Hard Constraints}
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+R10 & Disqualify too scary &
+The user accepts no scariness and a movie is classified as highly scary &
+Disqualify that movie for being too scary. \\
+R11 & Disqualify too violent &
+The user wants low violence and a movie is classified as highly violent &
+Disqualify that movie for being too violent. \\
+\bottomrule
+\end{tabularx}
+
+\paragraph{Soft Scoring Rules}
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+R12 & Genre match bonus &
+The movie genre matches the user's preferred genre and the movie is not disqualified &
+Add $5$ points to the movie score and record an explanation that the genre matches. \\
+R13 & Genre mismatch penalty &
+The movie genre does not match the user's preferred genre and the movie is not disqualified &
+Subtract $2$ points from the movie score. \\
+R14 & Mood match bonus &
+The movie mood matches the user's preferred mood and the movie is not disqualified &
+Add $4$ points to the movie score and record an explanation that the mood matches. \\
+R15 & Mood partial compatibility &
+The user wants a light movie, the movie is emotional, and the movie is not disqualified &
+Add $1$ point for partial mood compatibility. \\
+R16 & Runtime match bonus &
+The movie runtime matches the user's preferred runtime and the movie is not disqualified &
+Add $2$ points to the movie score and record an explanation that the runtime fits the available time. \\
+R17 & Runtime mismatch penalty &
+The movie runtime does not match the user's preferred runtime and the movie is not disqualified &
+Subtract $1$ point from the movie score. \\
+R18 & Complexity match bonus &
+The movie complexity matches the user's preferred complexity and the movie is not disqualified &
+Add $2$ points to the movie score. \\
+R19 & Complexity conflict penalty &
+The user wants an easy movie, the movie is complex, and the movie is not disqualified &
+Subtract $3$ points from the movie score. \\
+R20 & Group-fit bonus &
+The user is watching with a group, the movie has good group fit, and the movie is not disqualified &
+Add $2$ points to the movie score and record an explanation that the movie is good for groups. \\
+R21 & Group-fit penalty &
+The user is watching with a group, the movie has poor group fit, and the movie is not disqualified &
+Subtract $3$ points from the movie score. \\
+R22 & Scariness match bonus &
+The user has given a scariness preference, the movie matches that scariness level, and the movie is not disqualified &
+Add $2$ points to the movie score. \\
+R23 & Violence soft penalty &
+The user accepts medium violence, the movie is highly violent, and the movie is not disqualified &
+Subtract $1$ point from the movie score. \\
+\bottomrule
+\end{tabularx}
+
+\paragraph{Fallback Rule}
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+R25 & Final fallback (genre-only) &
+No viable candidates remain after filtering and scoring &
+Relax the final selection step and recommend titles from the preferred genre, or from the default catalog order if no genre is preferred. \\
+\bottomrule
+\end{tabularx}
+
+\paragraph{Output Rules}
+The system uses the above rules to score each movie in the catalog and then outputs the top three recommendations to the user together with brief explanations.
+
+\subsection{Explainability, Modularity, and Portability}
+The system aims to be explainable by attaching explanation facts to recommendations and printing short justification messages for selected titles. It is modular because the factbase and rulebase are kept separate and grouped by role. It is portable because the CLIPS entry files use relative paths rather than machine-specific absolute paths, allowing the project to run from different folders and machines more easily.
+
+\section{D2: Uncertain Knowledge}
+Deliverable 2 extends the system with two uncertainty models. The original crisp scoring remains intact, and the final recommendation list combines contributions from the crisp score, Certainty Factors, and fuzzy logic.
+
+\subsection{Feedback Improvements}
+The D2 revision was guided by the actual improvement areas identified from the D1 evaluation and from a re-reading of the original D1 write-up: make testing more explicit, make validation and verification independently repeatable, and explain more clearly how the movie labels were determined. The following changes were made in direct response.
+\begin{itemize}
+  \item \textbf{Feedback item 1}: Validation and verification in D1 were not documented with enough concrete evidence.\\
+  \textbf{Change}: Added a dedicated testing, validation, and verification section, created a repeatable scenario-based batch test suite, and added a separate interactive input-validation test.\\
+  \textbf{Independent evidence}: See Section ``Testing, Validation, and Verification'' together with \texttt{test.clp} and \texttt{input\_validation\_test.clp}.
+  \item \textbf{Feedback item 2}: The basis for subjective decisions in the knowledge base was not explicit enough.\\
+  \textbf{Change}: Added a knowledge-acquisition section that distinguishes crisp catalog knowledge from uncertainty derived from review evidence, and documented the TMDb-based pipeline used to produce D2 uncertainty candidates.\\
+  \textbf{Independent evidence}: See Section ``Sources and Knowledge Acquisition'' and the scripts in \texttt{supporting\_materials}.
+\end{itemize}
+
+\subsection{Probabilistic Uncertainty: Certainty Factors}
+Probabilistic uncertainty is modeled using Certainty Factors (CF). For each uncertain claim, the system stores a CF in the range $[-1, 1]$ and combines multiple contributions using standard CF combination rules.
+
+\subsubsection{New Facts}
+Probabilistic evidence facts added in \texttt{facts.clp} include:
+\begin{itemize}
+  \item \textit{10 Things I Hate About You} has uncertain evidence supporting a light mood with certainty factor $0.75$.
+  \item \textit{It} has uncertain evidence supporting high scariness with certainty factor $0.73$.
+  \item \textit{Shrek} has uncertain evidence supporting a light mood with certainty factor $0.74$.
+  \item \textit{The Conjuring} has uncertain evidence supporting high scariness with certainty factor $0.64$.
+  \item \textit{The Babadook} has uncertain evidence supporting high scariness with certainty factor $0.62$.
+  \item \textit{The Notebook} has uncertain evidence supporting an emotional mood with certainty factor $0.62$.
+\end{itemize}
+
+\subsubsection{CF Rules Summary}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{0.11\textwidth} L{0.27\textwidth} L{0.30\textwidth} L{0.27\textwidth}@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+CF0 & Initialize CF scores &
+A movie exists and no certainty-factor score has yet been created for it &
+Create a certainty-factor score for that movie with initial value $0$. \\
+CF-G/CF-M/CF-R/CF-C & Add preference-alignment CF evidence &
+The user has given a preference for genre, mood, runtime, or complexity &
+Add a positive or negative certainty-factor contribution based on whether the movie aligns with that preference, and mark the feature as processed for that title. \\
+CF1--CF8 & Generate evidence-based CF contributions &
+Uncertain evidence exists for a movie feature and that evidence matches or conflicts with the user's preference &
+Add a certainty-factor contribution derived from the uncertain evidence. \\
+CF9 & Clear unmatched pending evidence &
+Pending probabilistic evidence remains but no applicable user preference exists &
+Mark that evidence item as completed so the inference cycle can terminate cleanly. \\
+CF10 & Combine CFs &
+A certainty-factor contribution exists for a movie that already has a certainty-factor score &
+Combine the contribution with the current certainty-factor score to produce an updated score. \\
+\bottomrule
+\end{tabular}
+\endgroup
+
+\subsection{Possibilistic Uncertainty: Fuzzy Logic}
+Possibilistic uncertainty is modeled using fuzzy membership degrees. Each movie can partially belong to multiple categories, and user preferences are translated into fuzzy preference memberships combined with the $\min$ operator.
+
+\subsubsection{New Facts}
+Fuzzy membership facts added in \texttt{facts.clp} include:
+\begin{itemize}
+  \item \textit{A Quiet Place} belongs fully to the fuzzy label \textit{high scariness} and partially to \textit{mild scariness} with membership $0.43$.
+  \item \textit{Coco} belongs fully to the fuzzy label \textit{light mood} and also partially to \textit{emotional mood} with membership $0.67$.
+  \item \textit{Shutter Island} belongs fully to the fuzzy label \textit{mild scariness} and partially to \textit{high scariness} with membership $0.50$.
+  \item \textit{Spider-Man: Into the Spider-Verse} belongs fully to the fuzzy label \textit{light mood} and also partially to \textit{emotional mood} with membership $0.67$.
+  \item \textit{Prisoners} belongs fully to the fuzzy label \textit{medium violence} and partially to \textit{high violence} with membership $0.33$.
+  \item Similar fuzzy facts are used wherever review evidence suggested meaningful partial membership rather than a single crisp label.
+\end{itemize}
+
+\subsubsection{Fuzzy Rules Summary}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}L{0.11\textwidth} L{0.27\textwidth} L{0.30\textwidth} L{0.27\textwidth}@{}}
+\toprule
+\textbf{ID} & \textbf{Purpose} & \textbf{Conditions (IF)} & \textbf{Actions (THEN)} \\
+\midrule
+FZ0 & Initialize fuzzy scores &
+A movie exists and no fuzzy score has yet been created for it &
+Create a fuzzy score for that movie with initial sum $0$ and count $0$. \\
+FZ0a--FZ0f & Add default fuzzy degrees from the catalog &
+A movie has a crisp catalog value for a supported feature &
+Create a default fuzzy degree of $1.0$ for that label so fuzzy comparison remains possible even without external uncertain labels. \\
+FZ1--FZ12d & Build fuzzy preferences &
+The user has provided a relevant preference &
+Create fuzzy preference values for the corresponding feature labels. \\
+FZ13 & Apply fuzzy matching &
+A movie fuzzy degree and a user fuzzy preference exist for the same feature label &
+Add the minimum of the two membership values to the movie's fuzzy score. \\
+FZ14 & Clear unmatched pending fuzzy items &
+Pending fuzzy items remain but no applicable user preference exists &
+Mark the item as completed so the inference cycle remains finite. \\
+\bottomrule
+\end{tabular}
+\endgroup
+
+\subsection{Final Scoring and Recommendation Strategy}
+The final recommendation score combines the crisp score with weighted contributions from Certainty Factors and fuzzy logic. This allows the system to preserve the deterministic behavior from D1 while also taking uncertain evidence into account when ranking candidate movies in D2.
+
+The exact numeric weights used in the crisp, CF, and fuzzy scoring layers were chosen heuristically during knowledge engineering rather than copied from a single published formula. However, the overall ordering of those weights was informed by audience-preference evidence and recommendation literature. Genre was treated as the strongest positive match because moviegoers commonly report favorite genres as a major factor when choosing what to watch, while mood was also treated as highly important because prior movie-recommendation research shows that user mood meaningfully affects how films are appraised and selected. Runtime was given a smaller weight because it functions more as a convenience preference than a primary taste signal, which is also consistent with survey evidence showing that viewers do have length preferences but usually within a broad middle range rather than as a dominant content criterion.\footnote{\href{https://www.statista.com/statistics/1334674/factors-influencing-moviegoing-united-states/}{Statista, ``Leading factors influencing moviegoing in the United States 2022''}.}\footnote{\href{https://www.sciencedirect.com/science/article/pii/S0957417410001569}{L. Baltrunas et al., ``The role of user mood in movie recommendations,'' \textit{Expert Systems with Applications}, 2010}.}\footnote{\href{https://today.yougov.com/topics/society/survey-results/daily/2018/05/14/a7f00/2}{YouGov, ``How long do you think most movies should be?'' May 14, 2018}.}
+
+\section{Quality Attributes and Guidelines}
+
+\subsection{Selected Quality Attributes}
+\begin{itemize}
+  \item \textbf{Explainability}: This attribute is important because the system is intended to justify why a recommendation was produced rather than behave like an opaque ranking tool.
+  \item \textbf{Maintainability}: This attribute is important because the movie catalog, uncertainty facts, and rule set are all expected to evolve over time.
+  \item \textbf{Consistency}: This attribute is important because the system combines crisp, probabilistic, and possibilistic knowledge, which must still produce coherent results.
+  \item \textbf{Usability}: This attribute is important because the intended user is a casual viewer who needs a quick interview and a recommendation that is easy to interpret.
+\end{itemize}
+
+\subsection{Applying Guidelines to F and R}
+\begin{itemize}
+  \item \textbf{Separation of facts and rules}: All facts are stored in \texttt{facts.clp} and all inference rules are stored in \texttt{rules.clp}. This guideline was applied to the entire knowledge base, including the D2 additions such as \texttt{prob-evidence}, \texttt{fuzzy-degree}, and the associated uncertainty rules.
+  \item \textbf{Clear naming and modularity}: Rule names are grouped by phase and reasoning style (\texttt{R*} for crisp logic, \texttt{CF*} for Certainty Factors, and \texttt{FZ*} for fuzzy logic). This guideline was applied throughout the rule base so that each section has a clear responsibility and can be reviewed independently.
+  \item \textbf{Controlled inference}: CF and fuzzy reasoning are isolated in dedicated sections and do not directly modify the original crisp score. Instead, they contribute through separate working-memory structures and are combined only at the final ranking stage.
+  \item \textbf{Traceability}: The report maps rule groups to their purpose, and the implementation mirrors those groups in labeled sections of \texttt{rules.clp}. This makes it possible to inspect where each guideline was applied in both the document and the code.
+  \item \textbf{State isolation}: Cleanup functions retract transient scoring, CF, and fuzzy facts between repeated runs and test cases. This guideline was applied to improve repeatability and to prevent stale working-memory state from affecting later inferences.
+\end{itemize}
+
+\subsection{Impact of the Guidelines}
+\begin{itemize}
+  \item \textbf{Positive impact on explainability and maintainability}: Modularity, clear naming, and sectioned rule groups make the knowledge base easier to inspect, explain, and extend.
+  \item \textbf{Positive impact on consistency}: Keeping CF and fuzzy logic isolated until final combination reduces the chance that uncertainty rules will accidentally distort the original crisp scoring behavior.
+  \item \textbf{Positive impact on usability}: The clear separation between interview, filtering, scoring, and output supports a short interaction flow and more understandable explanations.
+  \item \textbf{Neutral/negative impact}: Adding uncertainty models improves expressive power, but it also increases implementation complexity, review effort, and the amount of testing needed to maintain confidence in the results.
+\end{itemize}
+
+\section{Testing, Validation, and Verification}
+
+\subsection{Validation}
+Validation is performed by running representative user scenarios and confirming that the recommendations align with expected user preferences. For example, when the user requests no scariness and low violence, highly scary and highly violent titles are excluded from the final recommendations.
+
+\subsection{Verification}
+Verification checks that the implemented rules satisfy their intended knowledge-level behavior. For example, hard constraints must always disqualify movies that violate explicit user restrictions, the fallback rule must activate when no viable candidates remain, and the uncertainty rules must affect ranking without breaking the crisp baseline.
+
+\subsection{Testing Strategy}
+The following tests are executed using the \texttt{test.clp} batch file:
+\begin{enumerate}
+  \item \textbf{Low scariness, low violence}: ensure high-scariness and high-violence movies are disqualified.
+  \item \textbf{Genre-specific preference}: ensure genre matches are ranked higher.
+  \item \textbf{Certainty Factor evidence}: verify that titles with uncertain matching evidence receive non-zero CF scores.
+  \item \textbf{Fuzzy influence}: confirm that the final recommendation list reflects fuzzy preferences such as short runtime.
+  \item \textbf{Fallback scenario}: force a case where all movies are disqualified and confirm the fallback activates.
+  \item \textbf{Focused ranking scenarios}: confirm expected results for action/intense/high-violence, comedy/light/medium-runtime, and sci-fi/mindbending/long/complex preferences.
+\end{enumerate}
+The current test harness also resets transient crisp, CF, and fuzzy working-memory facts between test cases so that scenario outputs remain order-independent.
+
+\subsection{Input Validation Testing}
+Interactive validation is tested separately using \texttt{input\_validation\_test.clp}, which intentionally supplies invalid answers such as misspelled genre and mood values before entering valid ones. This verifies that the system rejects invalid input, prints an appropriate message, and continues only after receiving a valid choice.
+
+\subsection{Key Results}
+The current test run showed that the hard constraints were enforced correctly, the fallback mechanism activated when all titles were forced into disqualification, and the final ranking responded to both crisp and uncertain knowledge. In the verified scenario tests, \textit{Toy Story} appeared in the top three for the short-runtime fuzzy case, \textit{John Wick} appeared in the top three for the action/intense/high-violence case, all expected comedy titles appeared in the comedy/light/medium case, and \textit{Inception} appeared in the top three for the sci-fi/mindbending/long/complex case. The additional invalid-input testing demonstrates that the interview is resilient to common typing mistakes.
+
+\section{Sources and Knowledge Acquisition}
+Objective catalog attributes such as genre and runtime were assigned manually in the fact base. For D2, the uncertain subjective attributes were derived from review text collected through the TMDb API and then converted into Certainty Factor and fuzzy facts through a small supporting-material pipeline. In the implemented CLIPS knowledge base, these derived uncertainty facts are tagged with the source label \texttt{"TMDb review inference"}.
+
+\subsection{Objective vs.\ Subjective Attributes}
+\begin{itemize}
+  \item \textbf{Objective attributes} (genre, runtime): entered as crisp catalog knowledge in \texttt{facts.clp}.
+  \item \textbf{Subjective attributes} (mood, scariness, violence, complexity): derived from review evidence, with that evidence informing both crisp catalog labels and the additional uncertainty facts used in D2.
+\end{itemize}
+
+\subsection{TMDb Review Pipeline}
+The review-acquisition pipeline used for D2 is implemented in the \texttt{supporting\_materials} directory:
+\begin{itemize}
+  \item \texttt{fetch\_tmdb\_reviews.py}: reads movie titles from \texttt{facts.clp}, queries the TMDb API, and exports review text to \texttt{tmdb\_reviews.txt}.
+  \item \texttt{infer\_subjective\_labels.py}: analyzes the exported reviews with a keyword-based method and produces inferred crisp labels, CF values, and fuzzy memberships in \texttt{subjective\_inference.txt}.
+  \item \texttt{export\_uncertainty\_facts.py}: converts the inferred values into candidate CLIPS \texttt{prob-evidence} and \texttt{fuzzy-degree} facts in \texttt{candidate\_uncertainty\_facts.txt}.
+  \item \texttt{curated\_uncertainty\_facts.txt}: records the manually reviewed subset of candidate facts that were kept for the final knowledge base.
+\end{itemize}
+
+\subsection{How the Final D2 Facts Were Chosen}
+The final D2 uncertainty facts were not inserted automatically. The pipeline first generated candidate facts from TMDb review evidence and then a curated subset was selected for inclusion in the final CLIPS knowledge base. This manual review step reduced noisy or obviously incorrect inferences before the surviving \texttt{prob-evidence} and \texttt{fuzzy-degree} facts were copied into \texttt{facts.clp}.
+
+\subsection{External Service Attribution}
+The review data used in the D2 uncertainty pipeline came from The Movie Database (TMDb) API through the provided acquisition code.\footnote{\href{https://developer.themoviedb.org/docs/getting-started}{TMDb Developer Documentation, ``Getting Started''}.} The implementation and intermediate outputs are included in the \texttt{supporting\_materials} directory for independent verification.
+
+\clearpage
+\section*{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\begin{enumerate}
+  \item Statista. ``Leading factors influencing moviegoing in the United States 2022.'' Available at: \url{https://www.statista.com/statistics/1334674/factors-influencing-moviegoing-united-states/}
+  \item Baltrunas, L. et al. ``The role of user mood in movie recommendations.'' \textit{Expert Systems with Applications}, 2010. Available at: \url{https://www.sciencedirect.com/science/article/pii/S0957417410001569}
+  \item YouGov. ``How long do you think most movies should be?'' May 14, 2018. Available at: \url{https://today.yougov.com/topics/society/survey-results/daily/2018/05/14/a7f00/2}
+  \item YouGov. ``Global: Do user reviews guide consumers' choices of movies and TV shows?'' December 6, 2022. Available at: \url{https://yougov.com/articles/44652-global-do-user-reviews-guide-consumers-choices-mov}
+  \item TMDb Developer Documentation. ``Getting Started.'' Available at: \url{https://developer.themoviedb.org/docs/getting-started}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,1509 @@
+Subjective Attribute Inference
+================================================================================
+Method: keyword-based evidence extraction from TMDb reviews
+Features analyzed: mood, scariness, violence, complexity
+
+================================================================================
+Movie: 10 Things I Hate About You
+Reviews analyzed: 4
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.75
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.14, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=7, intense=0, emotional=1, mindbending=0, scary=0
+  Total signal: 8.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.45
+  Fuzzy values: low=1.0, medium=0.0, high=0.5
+  Raw evidence scores: low=2, medium=0, high=1
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.33
+  Fuzzy values: easy=1.0, medium=1.0, complex=1.0
+  Raw evidence scores: easy=1, medium=1, complex=1
+  Total signal: 3.0
+
+================================================================================
+Movie: 21 Jump Street
+Reviews analyzed: 2
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.62
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=2, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: A Quiet Place
+Reviews analyzed: 12
+
+MOOD
+  Crisp label: intense
+  CF label/value: intense / 0.45
+  Fuzzy values: light=0.0, intense=1.0, emotional=0.0, mindbending=0.0, scary=0.4
+  Raw evidence scores: light=0, intense=5, emotional=0, mindbending=0, scary=2
+  Total signal: 7.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.48
+  Fuzzy values: none=0.0, mild=0.43, high=1.0
+  Raw evidence scores: none=0, mild=3, high=7
+  Total signal: 10.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: About Time
+Reviews analyzed: 5
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.27
+  Fuzzy values: light=1.0, intense=0.0, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=1, mindbending=0, scary=0
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Arrival
+Reviews analyzed: 12
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.37
+  Fuzzy values: light=0.0, intense=0.5, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=1, emotional=2, mindbending=0, scary=0
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.46
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.44
+  Fuzzy values: easy=0.33, medium=1.0, complex=0.33
+  Raw evidence scores: easy=1, medium=3, complex=1
+  Total signal: 5.0
+
+================================================================================
+Movie: Blade Runner 2049
+Reviews analyzed: 12
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.37
+  Fuzzy values: light=0.5, intense=0.0, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=2, mindbending=0, scary=0
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.37
+  Fuzzy values: low=0.5, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=2, high=0
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.37
+  Fuzzy values: easy=0.67, medium=1.0, complex=0.33
+  Raw evidence scores: easy=2, medium=3, complex=1
+  Total signal: 6.0
+
+================================================================================
+Movie: Coco
+Reviews analyzed: 5
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.45
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.67, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=3, intense=0, emotional=2, mindbending=0, scary=0
+  Total signal: 5.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.27
+  Fuzzy values: low=1.0, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=1, high=0
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.27
+  Fuzzy values: easy=1.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=1, complex=0
+  Total signal: 2.0
+
+================================================================================
+Movie: Crazy, Stupid, Love.
+Reviews analyzed: 3
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.0
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 0.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Die Hard
+Reviews analyzed: 9
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.44
+  Fuzzy values: light=1.0, intense=0.33, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=3, intense=1, emotional=0, mindbending=0, scary=0
+  Total signal: 4.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.47
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=1, medium=0, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.4
+  Fuzzy values: easy=0.5, medium=1.0, complex=0.5
+  Raw evidence scores: easy=1, medium=2, complex=1
+  Total signal: 4.0
+
+================================================================================
+Movie: Edge of Tomorrow
+Reviews analyzed: 11
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.25
+  Fuzzy values: light=1.0, intense=0.0, emotional=1.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=1, intense=0, emotional=1, mindbending=0, scary=1
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.47
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.47
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.47
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: Eternal Sunshine of the Spotless Mind
+Reviews analyzed: 8
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.49
+  Fuzzy values: light=0.5, intense=0.0, emotional=1.0, mindbending=0.5, scary=0.0
+  Raw evidence scores: light=2, intense=0, emotional=4, mindbending=2, scary=0
+  Total signal: 8.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.39
+  Fuzzy values: low=0.5, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=2, high=0
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.45
+  Fuzzy values: easy=0.0, medium=0.5, complex=1.0
+  Raw evidence scores: easy=0, medium=2, complex=4
+  Total signal: 6.0
+
+================================================================================
+Movie: Ex Machina
+Reviews analyzed: 4
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.0
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 0.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.49
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.49
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: Fight Club
+Reviews analyzed: 10
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.39
+  Fuzzy values: light=1.0, intense=0.5, emotional=0.0, mindbending=0.5, scary=0.0
+  Raw evidence scores: light=2, intense=1, emotional=0, mindbending=1, scary=0
+  Total signal: 4.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.47
+  Fuzzy values: none=0.0, mild=1.0, high=0.0
+  Raw evidence scores: none=0, mild=1, high=0
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.39
+  Fuzzy values: low=1.0, medium=0.5, high=0.5
+  Raw evidence scores: low=2, medium=1, high=1
+  Total signal: 4.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.23
+  Fuzzy values: easy=1.0, medium=0.0, complex=1.0
+  Raw evidence scores: easy=1, medium=0, complex=1
+  Total signal: 2.0
+
+================================================================================
+Movie: Forrest Gump
+Reviews analyzed: 3
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.51
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.31
+  Fuzzy values: low=1.0, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=1, high=0
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.31
+  Fuzzy values: easy=0.0, medium=1.0, complex=1.0
+  Raw evidence scores: easy=0, medium=1, complex=1
+  Total signal: 2.0
+
+================================================================================
+Movie: Get Out
+Reviews analyzed: 12
+
+MOOD
+  Crisp label: scary
+  CF label/value: scary / 0.48
+  Fuzzy values: light=0.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=2
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.5
+  Fuzzy values: none=0.2, mild=0.2, high=1.0
+  Raw evidence scores: none=1, mild=1, high=5
+  Total signal: 7.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.44
+  Fuzzy values: easy=0.33, medium=1.0, complex=0.33
+  Raw evidence scores: easy=1, medium=3, complex=1
+  Total signal: 5.0
+
+================================================================================
+Movie: Gone Girl
+Reviews analyzed: 6
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.26
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=1, intense=0, emotional=0, mindbending=0, scary=1
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.48
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.48
+  Fuzzy values: easy=0.0, medium=0.0, complex=1.0
+  Raw evidence scores: easy=0, medium=0, complex=1
+  Total signal: 1.0
+
+================================================================================
+Movie: Groundhog Day
+Reviews analyzed: 7
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.62
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=7, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 7.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.52
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=3, medium=0, high=0
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.4
+  Fuzzy values: easy=0.5, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=2, complex=0
+  Total signal: 3.0
+
+================================================================================
+Movie: Hereditary
+Reviews analyzed: 7
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.25
+  Fuzzy values: light=1.0, intense=1.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=1, emotional=0, mindbending=0, scary=0
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.55
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=4
+  Total signal: 4.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: low=0.0, medium=1.0, high=0.33
+  Raw evidence scores: low=0, medium=3, high=1
+  Total signal: 4.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.4
+  Fuzzy values: easy=1.0, medium=0.5, complex=0.0
+  Raw evidence scores: easy=2, medium=1, complex=0
+  Total signal: 3.0
+
+================================================================================
+Movie: Inception
+Reviews analyzed: 8
+
+MOOD
+  Crisp label: mindbending
+  CF label/value: mindbending / 0.39
+  Fuzzy values: light=0.5, intense=0.0, emotional=0.0, mindbending=1.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=0, mindbending=2, scary=0
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.47
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.53
+  Fuzzy values: easy=0.0, medium=0.0, complex=1.0
+  Raw evidence scores: easy=0, medium=0, complex=4
+  Total signal: 4.0
+
+================================================================================
+Movie: Inside Out
+Reviews analyzed: 11
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.55
+  Fuzzy values: light=0.44, intense=0.0, emotional=1.0, mindbending=0.11, scary=0.0
+  Raw evidence scores: light=4, intense=0, emotional=9, mindbending=1, scary=0
+  Total signal: 14.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.23
+  Fuzzy values: none=1.0, mild=0.0, high=1.0
+  Raw evidence scores: none=1, mild=0, high=1
+  Total signal: 2.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.23
+  Fuzzy values: low=1.0, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=1, high=0
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.43
+  Fuzzy values: easy=0.0, medium=0.33, complex=1.0
+  Raw evidence scores: easy=0, medium=1, complex=3
+  Total signal: 4.0
+
+================================================================================
+Movie: Interstellar
+Reviews analyzed: 19
+
+MOOD
+  Crisp label: intense
+  CF label/value: intense / 0.41
+  Fuzzy values: light=0.5, intense=1.0, emotional=0.5, mindbending=0.5, scary=0.0
+  Raw evidence scores: light=2, intense=4, emotional=2, mindbending=2, scary=0
+  Total signal: 10.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.46
+  Fuzzy values: none=0.0, mild=1.0, high=0.0
+  Raw evidence scores: none=0, mild=1, high=0
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.32
+  Fuzzy values: low=0.75, medium=1.0, high=0.0
+  Raw evidence scores: low=3, medium=4, high=0
+  Total signal: 7.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.39
+  Fuzzy values: easy=0.5, medium=0.25, complex=1.0
+  Raw evidence scores: easy=2, medium=1, complex=4
+  Total signal: 7.0
+
+================================================================================
+Movie: It
+Reviews analyzed: 9
+
+MOOD
+  Crisp label: scary
+  CF label/value: scary / 0.55
+  Fuzzy values: light=0.57, intense=0.29, emotional=0.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=4, intense=2, emotional=0, mindbending=0, scary=7
+  Total signal: 13.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.73
+  Fuzzy values: none=0.0, mild=0.07, high=1.0
+  Raw evidence scores: none=0, mild=1, high=15
+  Total signal: 16.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.24
+  Fuzzy values: low=0.0, medium=1.0, high=1.0
+  Raw evidence scores: low=0, medium=1, high=1
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.38
+  Fuzzy values: easy=0.5, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=2, complex=0
+  Total signal: 3.0
+
+================================================================================
+Movie: John Wick
+Reviews analyzed: 16
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.44
+  Fuzzy values: light=0.25, intense=0.0, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=4, mindbending=0, scary=0
+  Total signal: 5.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.46
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: high
+  CF label/value: high / 0.48
+  Fuzzy values: low=0.0, medium=0.0, high=1.0
+  Raw evidence scores: low=0, medium=0, high=3
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.44
+  Fuzzy values: easy=1.0, medium=0.25, complex=0.0
+  Raw evidence scores: easy=4, medium=1, complex=0
+  Total signal: 5.0
+
+================================================================================
+Movie: Knives Out
+Reviews analyzed: 15
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.39
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.5, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=4, intense=0, emotional=2, mindbending=0, scary=0
+  Total signal: 6.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.47
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=2, medium=0, high=0
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: La La Land
+Reviews analyzed: 11
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.37
+  Fuzzy values: light=1.0, intense=0.67, emotional=0.33, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=3, intense=2, emotional=1, mindbending=0, scary=0
+  Total signal: 6.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.43
+  Fuzzy values: low=1.0, medium=0.33, high=0.0
+  Raw evidence scores: low=3, medium=1, high=0
+  Total signal: 4.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.47
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: Mad Max: Fury Road
+Reviews analyzed: 13
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.46
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.38
+  Fuzzy values: low=0.5, medium=1.0, high=0.5
+  Raw evidence scores: low=1, medium=2, high=1
+  Total signal: 4.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.48
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=2, complex=0
+  Total signal: 2.0
+
+================================================================================
+Movie: Mission: Impossible - Fallout
+Reviews analyzed: 8
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.47
+  Fuzzy values: light=0.0, intense=0.0, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=1, mindbending=0, scary=0
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.47
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.47
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=1, medium=0, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: Palm Springs
+Reviews analyzed: 7
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.47
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.5, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=4, intense=0, emotional=2, mindbending=0, scary=0
+  Total signal: 6.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.52
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=3, medium=0, high=0
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Parasite
+Reviews analyzed: 16
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.37
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.5, scary=0.5
+  Raw evidence scores: light=2, intense=0, emotional=0, mindbending=1, scary=1
+  Total signal: 4.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.46
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.44
+  Fuzzy values: low=0.25, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=4, high=0
+  Total signal: 5.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.25
+  Fuzzy values: easy=1.0, medium=0.5, complex=1.0
+  Raw evidence scores: easy=2, medium=1, complex=2
+  Total signal: 5.0
+
+================================================================================
+Movie: Prisoners
+Reviews analyzed: 9
+
+MOOD
+  Crisp label: intense
+  CF label/value: intense / 0.51
+  Fuzzy values: light=0.0, intense=1.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=3, emotional=0, mindbending=0, scary=0
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.49
+  Fuzzy values: none=0.0, mild=1.0, high=0.0
+  Raw evidence scores: none=0, mild=2, high=0
+  Total signal: 2.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.44
+  Fuzzy values: low=0.0, medium=1.0, high=0.33
+  Raw evidence scores: low=0, medium=3, high=1
+  Total signal: 4.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.44
+  Fuzzy values: easy=1.0, medium=0.33, complex=0.0
+  Raw evidence scores: easy=3, medium=1, complex=0
+  Total signal: 4.0
+
+================================================================================
+Movie: Scream
+Reviews analyzed: 2
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.0
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 0.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.53
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Se7en
+Reviews analyzed: 7
+
+MOOD
+  Crisp label: intense
+  CF label/value: intense / 0.27
+  Fuzzy values: light=0.0, intense=1.0, emotional=1.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=0, intense=1, emotional=1, mindbending=0, scary=1
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.5
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=2
+  Total signal: 2.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.25
+  Fuzzy values: low=0.0, medium=1.0, high=1.0
+  Raw evidence scores: low=0, medium=1, high=1
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.4
+  Fuzzy values: easy=1.0, medium=0.5, complex=0.0
+  Raw evidence scores: easy=2, medium=1, complex=0
+  Total signal: 3.0
+
+================================================================================
+Movie: Shrek
+Reviews analyzed: 4
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.74
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=7, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 7.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.49
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.49
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=1, medium=0, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Shutter Island
+Reviews analyzed: 11
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.47
+  Fuzzy values: light=1.0, intense=0.33, emotional=0.33, mindbending=0.33, scary=0.33
+  Raw evidence scores: light=3, intense=1, emotional=1, mindbending=1, scary=1
+  Total signal: 7.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.37
+  Fuzzy values: none=0.0, mild=1.0, high=0.5
+  Raw evidence scores: none=0, mild=2, high=1
+  Total signal: 3.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.46
+  Fuzzy values: low=0.25, medium=1.0, high=0.0
+  Raw evidence scores: low=1, medium=4, high=0
+  Total signal: 5.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.43
+  Fuzzy values: easy=0.0, medium=0.33, complex=1.0
+  Raw evidence scores: easy=0, medium=1, complex=3
+  Total signal: 4.0
+
+================================================================================
+Movie: Spider-Man: Into the Spider-Verse
+Reviews analyzed: 54
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.3
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.67, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=3, intense=0, emotional=2, mindbending=0, scary=0
+  Total signal: 5.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.33
+  Fuzzy values: low=1.0, medium=0.5, high=0.0
+  Raw evidence scores: low=2, medium=1, high=0
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.38
+  Fuzzy values: easy=1.0, medium=0.33, complex=0.0
+  Raw evidence scores: easy=3, medium=1, complex=0
+  Total signal: 4.0
+
+================================================================================
+Movie: Spirited Away
+Reviews analyzed: 2
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.0
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 0.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.53
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.37
+  Fuzzy values: easy=1.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=1, complex=0
+  Total signal: 2.0
+
+================================================================================
+Movie: Superbad
+Reviews analyzed: 3
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.56
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=2, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.51
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: The Babadook
+Reviews analyzed: 4
+
+MOOD
+  Crisp label: scary
+  CF label/value: scary / 0.49
+  Fuzzy values: light=0.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=1
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.62
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=4
+  Total signal: 4.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: The Conjuring
+Reviews analyzed: 6
+
+MOOD
+  Crisp label: scary
+  CF label/value: scary / 0.48
+  Fuzzy values: light=0.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=1.0
+  Raw evidence scores: light=0, intense=0, emotional=0, mindbending=0, scary=1
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.64
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=7
+  Total signal: 7.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.0
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=0, medium=0, high=0
+  Total signal: 0.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.26
+  Fuzzy values: easy=1.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=1, complex=0
+  Total signal: 2.0
+
+================================================================================
+Movie: The Godfather
+Reviews analyzed: 6
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.26
+  Fuzzy values: light=1.0, intense=1.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=1, emotional=0, mindbending=0, scary=0
+  Total signal: 2.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.26
+  Fuzzy values: low=1.0, medium=0.0, high=1.0
+  Raw evidence scores: low=1, medium=0, high=1
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.51
+  Fuzzy values: easy=0.0, medium=0.0, complex=1.0
+  Raw evidence scores: easy=0, medium=0, complex=2
+  Total signal: 2.0
+
+================================================================================
+Movie: The Grand Budapest Hotel
+Reviews analyzed: 2
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.53
+  Fuzzy values: light=1.0, intense=0.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=1, intense=0, emotional=0, mindbending=0, scary=0
+  Total signal: 1.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.53
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=1, medium=0, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: The Matrix
+Reviews analyzed: 10
+
+MOOD
+  Crisp label: mindbending
+  CF label/value: mindbending / 0.45
+  Fuzzy values: light=0.33, intense=0.33, emotional=0.0, mindbending=1.0, scary=0.0
+  Raw evidence scores: light=1, intense=1, emotional=0, mindbending=3, scary=0
+  Total signal: 5.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.25
+  Fuzzy values: low=1.0, medium=1.0, high=1.0
+  Raw evidence scores: low=1, medium=1, high=1
+  Total signal: 3.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.45
+  Fuzzy values: easy=0.33, medium=0.33, complex=1.0
+  Raw evidence scores: easy=1, medium=1, complex=3
+  Total signal: 5.0
+
+================================================================================
+Movie: The Notebook
+Reviews analyzed: 3
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.62
+  Fuzzy values: light=0.0, intense=0.0, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=0, emotional=3, mindbending=0, scary=0
+  Total signal: 3.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: medium
+  CF label/value: medium / 0.51
+  Fuzzy values: low=0.0, medium=1.0, high=0.0
+  Raw evidence scores: low=0, medium=1, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: medium
+  CF label/value: medium / 0.51
+  Fuzzy values: easy=0.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=0, medium=1, complex=0
+  Total signal: 1.0
+
+================================================================================
+Movie: The Shawshank Redemption
+Reviews analyzed: 20
+
+MOOD
+  Crisp label: emotional
+  CF label/value: emotional / 0.38
+  Fuzzy values: light=0.5, intense=0.0, emotional=1.0, mindbending=0.25, scary=0.0
+  Raw evidence scores: light=2, intense=0, emotional=4, mindbending=1, scary=0
+  Total signal: 7.0
+
+SCARINESS
+  Crisp label: high
+  CF label/value: high / 0.46
+  Fuzzy values: none=0.0, mild=0.0, high=1.0
+  Raw evidence scores: none=0, mild=0, high=1
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.22
+  Fuzzy values: low=1.0, medium=0.0, high=1.0
+  Raw evidence scores: low=1, medium=0, high=1
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: complex
+  CF label/value: complex / 0.32
+  Fuzzy values: easy=0.75, medium=0.0, complex=1.0
+  Raw evidence scores: easy=3, medium=0, complex=4
+  Total signal: 7.0
+
+================================================================================
+Movie: Toy Story
+Reviews analyzed: 5
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.5
+  Fuzzy values: light=1.0, intense=0.33, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=3, intense=1, emotional=0, mindbending=0, scary=0
+  Total signal: 4.0
+
+SCARINESS
+  Crisp label: none
+  CF label/value: none / 0.0
+  Fuzzy values: none=1.0, mild=0.0, high=0.0
+  Raw evidence scores: none=0, mild=0, high=0
+  Total signal: 0.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.52
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=2, medium=0, high=0
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.27
+  Fuzzy values: easy=1.0, medium=1.0, complex=0.0
+  Raw evidence scores: easy=1, medium=1, complex=0
+  Total signal: 2.0
+
+================================================================================
+Movie: Whiplash
+Reviews analyzed: 10
+
+MOOD
+  Crisp label: intense
+  CF label/value: intense / 0.52
+  Fuzzy values: light=0.0, intense=1.0, emotional=0.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=0, intense=4, emotional=0, mindbending=0, scary=0
+  Total signal: 4.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.5
+  Fuzzy values: none=0.0, mild=1.0, high=0.0
+  Raw evidence scores: none=0, mild=3, high=0
+  Total signal: 3.0
+
+VIOLENCE
+  Crisp label: high
+  CF label/value: high / 0.48
+  Fuzzy values: low=0.0, medium=0.0, high=1.0
+  Raw evidence scores: low=0, medium=0, high=2
+  Total signal: 2.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+
+================================================================================
+Movie: Your Name
+Reviews analyzed: 9
+
+MOOD
+  Crisp label: light
+  CF label/value: light / 0.4
+  Fuzzy values: light=1.0, intense=0.75, emotional=1.0, mindbending=0.0, scary=0.0
+  Raw evidence scores: light=4, intense=3, emotional=4, mindbending=0, scary=0
+  Total signal: 11.0
+
+SCARINESS
+  Crisp label: mild
+  CF label/value: mild / 0.47
+  Fuzzy values: none=0.0, mild=1.0, high=0.0
+  Raw evidence scores: none=0, mild=1, high=0
+  Total signal: 1.0
+
+VIOLENCE
+  Crisp label: low
+  CF label/value: low / 0.47
+  Fuzzy values: low=1.0, medium=0.0, high=0.0
+  Raw evidence scores: low=1, medium=0, high=0
+  Total signal: 1.0
+
+COMPLEXITY
+  Crisp label: easy
+  CF label/value: easy / 0.0
+  Fuzzy values: easy=1.0, medium=0.0, complex=0.0
+  Raw evidence scores: easy=0, medium=0, complex=0
+  Total signal: 0.0
+

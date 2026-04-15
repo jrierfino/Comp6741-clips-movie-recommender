@@ -1,0 +1,49 @@
+Curated Uncertainty Facts
+================================================================================
+These facts were manually reviewed from candidate_uncertainty_facts.txt.
+Noisy or obviously incorrect fuzzy inferences were removed.
+
+; ---------- Curated CF facts ----------
+(prob-evidence (title "10 Things I Hate About You") (feature mood) (value light) (cf 0.75) (source "TMDb review inference"))
+(prob-evidence (title "21 Jump Street") (feature mood) (value light) (cf 0.62) (source "TMDb review inference"))
+(prob-evidence (title "Groundhog Day") (feature mood) (value light) (cf 0.62) (source "TMDb review inference"))
+(prob-evidence (title "Hereditary") (feature scariness) (value high) (cf 0.55) (source "TMDb review inference"))
+(prob-evidence (title "Inside Out") (feature mood) (value emotional) (cf 0.55) (source "TMDb review inference"))
+(prob-evidence (title "It") (feature mood) (value scary) (cf 0.55) (source "TMDb review inference"))
+(prob-evidence (title "It") (feature scariness) (value high) (cf 0.73) (source "TMDb review inference"))
+(prob-evidence (title "Shrek") (feature mood) (value light) (cf 0.74) (source "TMDb review inference"))
+(prob-evidence (title "Superbad") (feature mood) (value light) (cf 0.56) (source "TMDb review inference"))
+(prob-evidence (title "The Babadook") (feature scariness) (value high) (cf 0.62) (source "TMDb review inference"))
+(prob-evidence (title "The Conjuring") (feature scariness) (value high) (cf 0.64) (source "TMDb review inference"))
+(prob-evidence (title "The Notebook") (feature mood) (value emotional) (cf 0.62) (source "TMDb review inference"))
+
+; ---------- Curated fuzzy facts ----------
+(fuzzy-degree (title "A Quiet Place") (feature scariness) (label high) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "A Quiet Place") (feature scariness) (label mild) (mu 0.43) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Arrival") (feature mood) (label emotional) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Arrival") (feature mood) (label intense) (mu 0.50) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Coco") (feature mood) (label light) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Coco") (feature mood) (label emotional) (mu 0.67) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Eternal Sunshine of the Spotless Mind") (feature mood) (label emotional) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Eternal Sunshine of the Spotless Mind") (feature mood) (label light) (mu 0.50) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Inside Out") (feature mood) (label emotional) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Inside Out") (feature mood) (label light) (mu 0.44) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Palm Springs") (feature mood) (label light) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Palm Springs") (feature mood) (label emotional) (mu 0.50) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Prisoners") (feature violence) (label medium) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Prisoners") (feature violence) (label high) (mu 0.33) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Shutter Island") (feature scariness) (label mild) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Shutter Island") (feature scariness) (label high) (mu 0.50) (source "TMDb review inference"))
+
+(fuzzy-degree (title "Spider-Man: Into the Spider-Verse") (feature mood) (label light) (mu 1.00) (source "TMDb review inference"))
+(fuzzy-degree (title "Spider-Man: Into the Spider-Verse") (feature mood) (label emotional) (mu 0.67) (source "TMDb review inference"))
+
+CF facts kept: 12
+Fuzzy facts kept: 18
